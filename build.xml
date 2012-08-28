@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="UniVis Explorer" default="build">
+
+    <property file="build.properties"/>
+
+    <taskdef name="izpack" classpath="${lib.dir}/IzPack/lib/compiler.jar"
+             classname="com.izforge.izpack.ant.IzPackTask"/>
+
+    <target name="splash" unless="nosplash">
+        <splash imageurl="file:${basedir}/src/resource/unikn/dbis/univis/images/splash_screen.png"/>
+    </target>
+
+    <target name="prepare" depends="splash">
+        <copy file="src/resource/hibernate.cfg.xml-template" tofile="src/resource/hibernate.cfg.xml"/>
+        <tstamp>
+            <format property="application.buildtime" pattern="yyyy-MM-dd HH:mm"/>
+        </tstamp>
+    </target>
+
+    <target name="version-java" depends="prepare">
+        <filter token="APPLICATION_NAME" value="${application.name}"/>
+        <filter token="APPLICATION_VERSION" value="${application.version}"/>
+        <filter token="APPLICATION_VERSION_TXT" value="${application.version_txt}"/>
+        <filter token="APPLICATION_BUILDTIME" value="${application.buildtime}"/>
+        <filter token="APPLICATION_AUTHORS" value="${application.authors}"/>
+        <copy file="src/resource/unikn/dbis/univis/ApplicationInfo.java.in"
+              tofile="src/java/unikn/dbis/univis/ApplicationInfo.java"
+              filtering="yes"
+              overwrite="true"/>
+    </target>
+
+    <target name="run" depends="build-dist">
+        <java classname="unikn.dbis.univis.explorer.VExplorer" fork="true">
+            <classpath>
+                <fileset dir="${dist.dir}" includes="**/*.jar"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="clean-all" depends="clean-build,clean-dist,clean-installer"/>
+
+    <target name="build" depends="version-java">
+        <mkdir dir="${build.dir}"/>
+        <javac debug="off" target="1.5" source="1.5" srcdir="${src.dir}/${java.dir}" destdir="${build.dir}">
+            <compilerarg line="-Xlint:unchecked"/>
+            <classpath>
+                <fileset dir="${lib.dir}" includes="**/*.jar"/>
+            </classpath>
+        </javac>
+        <copy todir="${build.dir}">
+            <fileset dir="${src.dir}/${resource.dir}" includes="**/*"/>
+        </copy>
+    </target>
+
+    <target name="clean-build" depends="splash">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="build-dist" depends="build">
+        <mkdir dir="${dist.dir}"/>
+        <jar basedir="${build.dir}" destfile="${dist.dir}/${jar.filename}" manifest="src/META-INF/Manifest.mf">
+            <fileset dir="${build.dir}"/>
+        </jar>
+        <copy todir="${dist.dir}/lib" flatten="true">
+            <fileset dir="${lib.dir}" includes="**/*.jar"/>
+        </copy>
+    </target>
+
+    <target name="clean-dist">
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="build-installer" depends="build-dist">
+        <mkdir dir="${installer.dir}"/>
+        <izpack input="build-install.xml"
+                output="${installer.dir}/${installer.filename}"
+                installerType="standard"
+                basedir="."
+                izPackDir="${lib.dir}/IzPack"/>
+    </target>
+
+    <target name="clean-installer">
+        <delete dir="${installer.dir}"/>
+    </target>
+
+</project>

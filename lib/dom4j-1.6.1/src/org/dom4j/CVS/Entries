@@ -1,0 +1,39 @@
+/Attribute.java/1.1/Tue Jan 17 16:44:12 2006//
+/Branch.java/1.1/Tue Jan 17 16:44:12 2006//
+/CDATA.java/1.1/Tue Jan 17 16:44:12 2006//
+/CharacterData.java/1.1/Tue Jan 17 16:44:12 2006//
+/Comment.java/1.1/Tue Jan 17 16:44:12 2006//
+/Document.java/1.1/Tue Jan 17 16:44:12 2006//
+/DocumentException.java/1.1/Tue Jan 17 16:44:12 2006//
+/DocumentFactory.java/1.1/Tue Jan 17 16:44:12 2006//
+/DocumentHelper.java/1.1/Tue Jan 17 16:44:12 2006//
+/DocumentType.java/1.1/Tue Jan 17 16:44:12 2006//
+/Element.java/1.1/Tue Jan 17 16:44:12 2006//
+/ElementHandler.java/1.1/Tue Jan 17 16:44:12 2006//
+/ElementPath.java/1.1/Tue Jan 17 16:44:12 2006//
+/Entity.java/1.1/Tue Jan 17 16:44:12 2006//
+/IllegalAddException.java/1.1/Tue Jan 17 16:44:12 2006//
+/InvalidXPathException.java/1.1/Tue Jan 17 16:44:12 2006//
+/Namespace.java/1.1/Tue Jan 17 16:44:12 2006//
+/Node.java/1.1/Tue Jan 17 16:44:13 2006//
+/NodeFilter.java/1.1/Tue Jan 17 16:44:13 2006//
+/ProcessingInstruction.java/1.1/Tue Jan 17 16:44:13 2006//
+/QName.java/1.1/Tue Jan 17 16:44:13 2006//
+/Text.java/1.1/Tue Jan 17 16:44:13 2006//
+/Visitor.java/1.1/Tue Jan 17 16:44:13 2006//
+/VisitorSupport.java/1.1/Tue Jan 17 16:44:13 2006//
+/XPath.java/1.1/Tue Jan 17 16:44:13 2006//
+/XPathException.java/1.1/Tue Jan 17 16:44:13 2006//
+/package.html/1.1/Tue Jan 17 16:44:13 2006//
+D/bean////
+D/datatype////
+D/dom////
+D/dtd////
+D/io////
+D/jaxb////
+D/rule////
+D/swing////
+D/tree////
+D/util////
+D/xpath////
+D/xpp////

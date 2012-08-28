@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/univis</property>
+        <!--
+        <property name="connection.url">jdbc:postgresql://phobos22.inf.uni-konstanz.de:5432/univis_explorer</property>
+        -->
+        <property name="connection.username">univis</property>
+        <property name="connection.password">UniVis</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">false</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- The hibernate mapping resources -->
+        <mapping resource="unikn/dbis/univis/authorization/VUser.hbm.xml"/>
+        <mapping resource="unikn/dbis/univis/meta/VHierarchy.hbm.xml"/>
+        <mapping resource="unikn/dbis/univis/meta/VDataReference.hbm.xml"/>
+        <mapping resource="unikn/dbis/univis/meta/VDiceBox.hbm.xml"/>
+        <mapping resource="unikn/dbis/univis/meta/VCube.hbm.xml"/>
+        <mapping resource="unikn/dbis/univis/meta/VClassification.hbm.xml"/>
+        <mapping resource="unikn/dbis/univis/meta/VDimension.hbm.xml"/>
+        <mapping resource="unikn/dbis/univis/meta/VMeasure.hbm.xml"/>
+        <mapping resource="unikn/dbis/univis/meta/VFunction.hbm.xml"/>
+
+    </session-factory>
+
+</hibernate-configuration>

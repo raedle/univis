@@ -1,0 +1,15 @@
+/AttributeHelper.java////*///
+/IndexedDocumentFactory.java////*///
+/IndexedElement.java////*///
+/NodeComparator.java////*///
+/NonLazyDocumentFactory.java////*///
+/NonLazyElement.java////*///
+/PerThreadSingleton.java////*///
+/ProxyDocumentFactory.java////*///
+/SimpleSingleton.java////*///
+/SingletonStrategy.java////*///
+/UserDataAttribute.java////*///
+/UserDataDocumentFactory.java////*///
+/UserDataElement.java////*///
+/XMLErrorHandler.java////*///
+/package.html////*///

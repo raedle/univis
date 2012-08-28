@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+   Copyright 2005-2006 UniVis Explorer development team.
+
+   This file is part of UniVis Explorer
+   (http://phobos22.inf.uni-konstanz.de/univis).
+
+   UniVis Explorer is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public License
+   as published by the Free Software Foundation; either version 2.1
+   of the License, or (at your option) any later version.
+
+   Please see COPYING for the complete licence.
+
+   @author Roman R&auml;dle
+   @version $Id$
+   @since UniVis Explorer 1.1
+-->
+
+<hibernate-mapping>
+
+    <class name="unikn.dbis.univis.authorization.VUser" table="UV_USER">
+
+        <id name="id" type="long" unsaved-value="-1">
+            <column name="ID" not-null="true"/>
+            <generator class="native"/>
+        </id>
+
+        <property name="userName" type="string">
+            <column name="USERNAME" not-null="true"/>
+        </property>
+
+        <property name="password" type="string">
+            <column name="PASSWORD" not-null="true"/>
+        </property>
+
+    </class>
+
+</hibernate-mapping>

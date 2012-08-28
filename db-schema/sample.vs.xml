@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DiceBox>
+
+    <Dimensions>
+        
+        <Dimension key="dim:term"
+                   i18n="term"
+                   dragable="false" />
+                   
+        <Dimension key="dim:by_term_group"
+                   i18n="by_term_group"
+                   dragable="true"
+                   table="dim_fachsemestergruppen"
+                   foreignKey="gruppe" />
+                   
+        <Dimension key="dim:by_term"
+                   i18n="by_term"
+                   dragable="true"
+                   table="dim_fachsemester"
+                   foreignKey="fs" />
+                   
+        <Dimension key="bluep:term"
+                   visible="false"
+                   table="bluep_fachsem"
+                   foreignKey="fachsem" />
+
+
+        
+        <Dimension key="dim:degree"
+                   i18n="degree"
+                   dragable="false" />
+                   
+        <Dimension key="dim:by_degree_type"
+                   i18n="by_degree_type"
+                   dragable="true"
+                   table="dim_abschlussarten"
+                   foreignKey="abschlussart" />
+                   
+        <Dimension key="dim:by_degree"
+                   i18n="by_degree"
+                   dragable="true"
+                   table="dim_abschluss"
+                   foreignKey="abschluss" />
+
+        <Dimension key="bluep:degree"
+                   visible="false"
+                   table="bluep_abschluss"
+                   foreignKey="abschluss" />
+                   
+
+        
+        <Dimension key="dim:nationality"
+                   i18n="nationality"
+                   dragable="false" />
+
+        <Dimension key="dim:by_continent"
+                   i18n="by_continent"
+                   dragable="true"
+                   table="dim_kontinent"
+                   foreignKey="kontinent"/>
+
+        <Dimension key="dim:by_subcontinent"
+                   i18n="by_sub-continent"
+                   dragable="true"
+                   dependent="true"
+                   table="dim_subkontinent"
+                   foreignKey="region"/>
+
+        <Dimension key="dim:by_country"
+                   i18n="by_country"
+                   dragable="true"
+                   dependent="true"
+                   table="dim_land"
+                   foreignKey="region"/>
+
+        <Dimension key="bluep:nation"
+                   visible="false"
+                   table="bluep_nation"
+                   foreignKey="nation" />
+                   
+                   
+
+        <Dimension key="bluep:gender"
+                   i18n="gender"
+                   dragable="true"
+                   table="bluep_geschlecht"
+                   foreignKey="geschlecht" />
+                   
+                   
+                   
+        <Dimension key="bluep:eligibility"
+                   i18n="eligibility"
+                   dragable="true"
+                   table="bluep_hzb"
+                   foreignKey="hzb" />
+                   
+                   
+                   
+        <Dimension key="dim:teaching_unit"
+                   i18n="teaching_unit"
+                   dragable="false" />
+                   
+        <Dimension key="dim:by_faculty"
+                   i18n="by_faculty"
+                   dragable="true"
+                   table="dim_fakultaet"
+                   foreignKey="fakultaet" />
+        
+        <Dimension key="dim:by_institut"
+                   i18n="by_institut"
+                   dragable="true"
+                   table="dim_institut"
+                   foreignKey="institut" />
+                   
+        <Dimension key="dim:by_department"
+                   i18n="by_department"
+                   dragable="true"
+                   table="dim_inst_einheit"
+                   foreignKey="inst_einheit" />
+
+    </Dimensions>
+
+    <Measures>
+        <Measure key="msr:heads" i18n="heads" column="koepfe" />
+        <Measure key="msr:cases" i18n="cases" column="faelle" />
+
+        <Measure key="msr:amount" i18n="amount" column="betrag" />
+    </Measures>
+
+    <Functions>
+        <Function key="fct:sum" i18n="total" definition="SUM({0})" />
+        <Function key="fct:max" i18n="maximum" definition="MAX({0})" />
+        <Function key="fct:min" i18n="minimum" definition="MIN({0})" />
+    </Functions>
+
+    <Cubes>
+        <Cube key="cub:students" i18n="students" table="sos_cube" color="-65536">
+            <Dimension-Ref key="dim:term">
+                <Dimension-Ref key="dim:by_term_group">
+                    <Dimension-Ref key="dim:by_term">
+                        <Dimension-Ref key="bluep:term" />
+                    </Dimension-Ref>
+                </Dimension-Ref>
+            </Dimension-Ref>
+            <Dimension-Ref key="dim:degree">
+                <Dimension-Ref key="dim:by_degree_type">
+                    <Dimension-Ref key="dim:by_degree">
+                        <Dimension-Ref key="bluep:degree" />
+                    </Dimension-Ref>
+                </Dimension-Ref>
+            </Dimension-Ref>
+            <Dimension-Ref key="dim:nationality">
+                <Dimension-Ref key="dim:by_continent">
+                    <Dimension-Ref key="dim:by_subcontinent">
+                        <Dimension-Ref key="dim:by_country">
+                            <Dimension-Ref key="bluep:nation" />
+                        </Dimension-Ref>
+                    </Dimension-Ref>
+                </Dimension-Ref>
+            </Dimension-Ref>
+            <Dimension-Ref key="bluep:gender" />
+            <Dimension-Ref key="bluep:eligibility" />
+            
+
+            <Measure-Ref key="msr:heads" />
+            <Measure-Ref key="msr:cases" />
+
+            <Function-Ref key="fct:sum" />
+            <Function-Ref key="fct:max" />
+            <Function-Ref key="fct:min" />
+        </Cube>
+        <Cube key="cub:orders" i18n="orders" table="cob_busa_cube" color="-16776961">
+            <Dimension-Ref key="bluep:gender" />
+
+            <Measure-Ref key="msr:amount" />
+
+            <Function-Ref key="fct:sum" />
+            <Function-Ref key="fct:max" />
+        </Cube>
+    </Cubes>
+
+</DiceBox>

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: lib/antlr-2.7.6rc1.jar lib/asm.jar lib/cglib-2.1.3.jar lib/commons-collections-2.1.1.jar lib/commons-logging-1.0.4.jar lib/dom4j-1.6.1.jar lib/ehcache-1.1.jar lib/ejb3-persistence.jar lib/hibernate-3.1.3.jar lib/hibernate-annotations.jar lib/jaxen-1.1-beta-4.jar lib/jcommon-1.0.0.jar lib/jfreechart-1.0.1.jar lib/jgraph.jar lib/jta.jar lib/junit-3.8.1.jar lib/log4j-1.2.11.jar lib/mysql-connector-java-3.1.7-bin.jar lib/postgresql-8.1-404.jdbc3.jar lib/spring-context.jar lib/spring-core.jar lib/swing-layout-0.7.jar lib/swingx.jar lib/table.jar
+Created-By: Roman R&auml;dle
+Main-Class: unikn.dbis.univis.explorer.VExplorer

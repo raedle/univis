@@ -1,0 +1,24 @@
+# TODO list for UniVis Explorer 0.1
+#
+# LEGEND: (+) finished correct
+#         (#) finished, maybe occuring errors
+#         (-) not yet finished
+
+* (#) filtering of dimension entries
+* (+) graph shape rotation clockwise, graph shape rotation against clockwise
+* (+) statepanel that shows the current measure, language, chartmode, time and date
+* (+) assign the selected dimensions in the tree after drag and drop / disable drag functionality
+* (+) allow drag functionality only for dimension that are summable
+* (#) set up the database
+* (+) only show legend if less values as 15 or show legend as tooltip
+* (-) interactive zooming with rectangle selection
+* (-) adjust the graph scale after dropping a new dimension (100% of available graph panel size)
+* (-) exception and error message handling with modal dialog panel (details button to show or hide whole message)
+* (+) splash screen animation
+
+
+# TODO list for UniVis Explorer 0.3
+#
+# LEGEND: (+) finished correct
+#         (#) finished, maybe occuring errors
+#         (-) not yet finished

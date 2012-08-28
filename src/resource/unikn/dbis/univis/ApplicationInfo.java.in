@@ -1,0 +1,49 @@
+/*
+ * Copyright 2005-2006 UniVis Explorer development team.
+ *
+ * This file is part of UniVis Explorer
+ * (http://phobos22.inf.uni-konstanz.de/univis).
+ *
+ * UniVis Explorer is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License
+ * as published by the Free Software Foundation; either version 2.1
+ * of the License, or (at your option) any later version.
+ *
+ * Please see COPYING for the complete licence.
+ */
+package unikn.dbis.univis;
+
+/**
+ * This <code>ApplicationInfo</code> provides version and compile time
+ * strings.
+ * It will be generated at build time.
+ * <p/>
+ * User: raedler
+ * Date: 05.10.2006
+ * Time: 17:26:58
+ *
+ * @author Roman R&auml;dle
+ * @since UniVis Explorer 0.3.1.0
+ */
+public class ApplicationInfo {
+
+    public static String getApplicationName() {
+        return "@APPLICATION_NAME@";
+    }
+
+    public static String getVersion() {
+        return "@APPLICATION_VERSION@";
+    }
+
+    public static String getVersionText() {
+        return "@APPLICATION_VERSION_TXT@";
+    }
+
+    public static String getBuildtime() {
+        return "@APPLICATION_BUILDTIME@";
+    }
+
+    public static String[] getAuthors() {
+        return "@APPLICATION_AUTHORS@".split(",");
+    }
+}

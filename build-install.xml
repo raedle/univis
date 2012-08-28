@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DTD -->
+
+<installation version="1.0">
+
+    <info>
+        <appname>UniVis Explorer</appname>
+        <appversion>0.3</appversion>
+        <authors>
+            <author name="Rädle Roman" email="raedler@inf.uni-konstanz.de"/>
+            <author name="Weiler Andreas" email="weiler@inf.uni-konstanz.de"/>
+        </authors>
+        <url>http://phobos22.inf.uni-konstanz.de/univis</url>
+        <javaversion>1.5</javaversion>
+    </info>
+
+    <guiprefs height="300" resizable="no" width="500">
+        <laf name="looks">
+            <os family="windows"/>
+            <param name="variant" value="extwin"/>
+        </laf>
+    </guiprefs>
+
+    <locale>
+    	<langpack iso3="deu"/>
+        <!--<langpack iso3="eng"/>-->
+    </locale>
+
+    <resources></resources>
+
+    <panels>
+        <panel classname="CheckedHelloPanel"/>
+        <!--<panel classname="HelloPanel"/>-->
+        <!--<panel classname="HTMLInfoPanel"/>-->
+        <!--<panel classname="LicencePanel"/>-->
+        <panel classname="PacksPanel"/>
+        <panel classname="TargetPanel"/>
+        <panel classname="ShortcutPanel"/>
+        <!--<panel classname="JDKPathPanel"/>-->
+        <panel classname="InstallPanel"/>
+        <panel classname="SimpleFinishPanel"/>
+    </panels>
+
+    <packs>
+        <pack name="Core" required="yes">
+            <description>Install the Economy Bill Agenda core files.</description>
+            <fileset dir="dist" targetdir="$INSTALL_PATH">
+                <include name="**/*"/>
+            </fileset>
+        </pack>
+        <!--
+        <pack name="Database" required="no">
+            <description>Install the Economy Bill Agenda database.</description>
+            <fileset dir="build/database" targetdir="$INSTALL_PATH">
+                <include name="**/*"/>
+            </fileset>
+        </pack>
+        -->
+        <!--
+        <pack name="MySQL Installation" required="no">
+            <description>INSTALL help files.</description>
+            <executable type="bin" targetfile="$INSTALL_PATH/mysql-setup.exe" stage="postinstall" keep="false" failure="warn"/>
+        </pack>
+        -->
+    </packs>
+
+</installation>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!--
+   Copyright 2005-2006 UniVis Explorer development team.
+
+   This file is part of UniVis Explorer
+   (http://phobos22.inf.uni-konstanz.de/univis).
+
+   UniVis Explorer is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Lesser General Public License
+   as published by the Free Software Foundation; either version 2.1
+   of the License, or (at your option) any later version.
+
+   Please see COPYING for the complete licence.
+
+   @author Roman R&auml;dle
+   @author Andreas Weiler
+   @version $Id: VMeasure.hbm.xml 338 2006-10-08 23:11:30Z raedler $
+   @since UniVis Explorer 0.1
+-->
+
+<hibernate-mapping>
+
+    <joined-subclass name="unikn.dbis.univis.meta.impl.VMeasureImpl" table="META_MEASURE"
+                     extends="unikn.dbis.univis.meta.impl.VDataReferenceImpl">
+
+        <key column="DATA_REFERENCE_ID"/>
+
+        <property name="column" type="string">
+            <column name="MEASURE_COLUMN" not-null="true"/>
+        </property>
+
+    </joined-subclass>
+
+</hibernate-mapping>
